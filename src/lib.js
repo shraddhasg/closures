@@ -39,27 +39,27 @@ const makeDeltaTracker = function (input) {
 
 const makeFiboGenerator = function (firstNumber, secondNumber) {
   if (arguments.length == 0) {
-    firstTerm = -1;
-    secondTerm = 1;
+    firstNumber = -1;
+    secondNumber = 1;
   }
 
   if (arguments.length == 1) {
     secondNumber = firstNumber;
     firstNumber = 0;
 
-    secondTerm = secondNumber - firstNumber;
-    firstTerm = firstNumber - secondTerm;
+    secondNumber = secondNumber - firstNumber;
+    firstNumber = firstNumber - secondNumber;
   }
 
   if (arguments.length == 2) {
-    secondTerm = secondNumber - firstNumber;
-    firstTerm = firstNumber - secondTerm;
+    secondNumber = secondNumber - firstNumber;
+    firstNumber = firstNumber - secondNumber;
   }
 
   return (result = function () {
-    let result = firstTerm + secondTerm;
-    firstTerm = secondTerm;
-    secondTerm = result;
+    let result = firstNumber + secondNumber;
+    firstNumber = secondNumber;
+    secondNumber = result;
     return result;
   });
 };
