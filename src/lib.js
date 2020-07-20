@@ -77,8 +77,12 @@ const curry = function (arg1, arg2) {
 };
 
 const compose = function (firstArg, secondArg) {
-  return (result = function (arg) {
-    if (arguments.length == 1) return arg.secondArg - 1;
+  return (result = function (input1, input2) {
+    if (arguments.length == 1) return firstArg(secondArg(arguments[0]));
+
+    let one = firstArg(arguments[0]);
+    let two = firstArg(arguments[1]);
+    return secondArg(one, two);
   });
 };
 
